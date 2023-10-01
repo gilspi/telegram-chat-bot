@@ -13,9 +13,9 @@ bot = telebot.TeleBot(API_TOKEN)
 # название БД
 NAME_BD = 'emplyees.sqlite'
 # id канала, с тестированными
-CHANNEL_ID = '-1001887005937'
+CHANNEL_ID = ''
 # id администратора
-ALLOWED_CHAT_IDS = [686854050, 5357408101, 967697323]  # изменить потом на id admin
+ALLOWED_CHAT_IDS = []  # изменить потом на id admin
 
 
 # Родительский путь
