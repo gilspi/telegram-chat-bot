@@ -1,6 +1,5 @@
 """Скрипт загружает и выгружает новых пользователей в completed_users.txt"""
 import os
-from settings import config
 from settings.config import COMPLETED_USERS_FILE
 
 
@@ -31,6 +30,3 @@ def save_completed_users(user_id):
         return 'Success save'
     else:
         return 'User already saved'
-
-
-print(load_completed_users())
