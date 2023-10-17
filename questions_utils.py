@@ -39,9 +39,10 @@ def is_question_exists(question, flag):
     return False
 
 
-def save_question(message, users):
+def save_question(message, user_data_manager):
     user_id = message.from_user.id
-    flag = users.get(user_id)
+    user_data_manager.print_data(user_id)
+    flag = user_data_manager.get_data(user_id, 'flag')
 
     if flag:
         if message.content_type == 'text':
@@ -61,7 +62,7 @@ def save_question(message, users):
                 bot.send_message(message.chat.id, 'Такой вопрос уже существует.')
         else:
             bot.send_message(user_id, "Некорректный формат ввода. Введите текст вопроса.")
-            bot.register_next_step_handler(message, save_question, users)
+            bot.register_next_step_handler(message, save_question, user_data_manager)  # ВОЗМОЖНО ПОПАДАНИЕ В РЕКУРСИЮ
     else:
         bot.send_message(user_id, "Что-то пошло не так. Попробуйте снова.")
 
